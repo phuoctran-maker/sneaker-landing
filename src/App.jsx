@@ -19,6 +19,21 @@ const featuredSneakers = [
   },
 ];
 
+const gallery = [
+  {
+    title: 'Drop Neon Pulse',
+    image: 'https://images.unsplash.com/photo-1528701800489-20be3c18f4f5?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Streetwear Essential',
+    image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Monochrome Runner',
+    image: 'https://images.unsplash.com/photo-1514986888952-8cd320577b68?auto=format&fit=crop&w=900&q=80',
+  },
+];
+
 const guarantees = [
   'Miễn phí đổi size trong 30 ngày',
   'Ship toàn quốc trong 2–4 ngày, cho kiểm tra trước khi nhận',
@@ -39,9 +54,9 @@ function App() {
         <header className="mb-16 flex items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">
-              NOVA KICKS
+              STRIDE LAB
             </p>
-            <p className="mt-2 text-sm text-slate-300/80">Landing page giới thiệu shop giầy sneaker thời trang</p>
+            <p className="mt-2 text-sm text-slate-300/80">Landing page giới thiệu shop sneaker bắt mắt</p>
           </div>
           <a
             href="#collection"
@@ -61,7 +76,7 @@ function App() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200/85 sm:text-xl">
               Landing page này giúp bạn giới thiệu bộ sưu tập sneaker bắt mắt, tập trung vào
-              ảnh hero lớn, mô tả công nghệ đệm/upper và CTA rõ ràng để chốt đơn nhanh khi chạy ads.
+              hình ảnh hero lớn, mô tả công nghệ đệm/upper và CTA rõ ràng để chốt đơn nhanh khi chạy ads.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -181,6 +196,29 @@ function App() {
         </div>
       </section>
 
+      <section className="mx-auto w-full max-w-7xl px-6 py-10 lg:px-10">
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">
+              Lookbook mới
+            </p>
+            <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">Ảnh thật từ bộ sưu tập gần nhất</h2>
+          </div>
+          <p className="max-w-xl text-slate-300/75">Dùng section này để gắn ảnh thật từ studio hoặc khách hàng, giúp tăng độ tin cậy khi chạy ads.</p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {gallery.map((item) => (
+            <div key={item.title} className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 backdrop-blur">
+              <img src={item.image} alt={item.title} loading="lazy" className="h-64 w-full object-cover" />
+              <div className="p-5">
+                <p className="text-sm uppercase tracking-[0.35em] text-emerald-200">Lookbook</p>
+                <h3 className="mt-2 text-xl font-semibold">{item.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="reasons" className="mx-auto grid w-full max-w-7xl gap-6 px-6 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
         <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">
@@ -205,30 +243,75 @@ function App() {
 
       <section id="contact" className="mx-auto w-full max-w-7xl px-6 pb-16 pt-6 lg:px-10">
         <div className="rounded-[2rem] border border-emerald-300/15 bg-gradient-to-r from-emerald-500/15 via-cyan-500/10 to-violet-400/15 p-8 backdrop-blur">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="grid gap-10 lg:grid-cols-2">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-200">
                 Liên hệ nhanh
               </p>
-              <h2 className="mt-3 text-3xl font-black text-white">Cần tư vấn size, phối màu hay order nhanh?</h2>
-              <p className="mt-3 max-w-2xl text-slate-200/75">
-                Gắn hotline, Zalo, Messenger hoặc form đặt hàng để khách liên hệ ngay sau khi xem landing page.
+              <h2 className="mt-3 text-3xl font-black text-white">Cần tư vấn size, phối màu hoặc đặt giầy nhanh?</h2>
+              <p className="mt-3 text-slate-200/80">
+                Hotline, Zalo và form đặt hàng luôn sẵn sàng. Nhân viên Stride Lab sẽ phản hồi trong vòng 15 phút.
               </p>
+
+              <div className="mt-6 space-y-3 text-sm text-slate-100">
+                <p>
+                  <span className="font-semibold text-white">Hotline:</span>{' '}
+                  <a href="tel:0901234567" className="text-emerald-200">0901 234 567</a>
+                </p>
+                <p>
+                  <span className="font-semibold text-white">Zalo:</span>{' '}
+                  <a href="https://zalo.me/0901234567" className="text-emerald-200" target="_blank" rel="noreferrer">
+                    zalo.me/0901234567
+                  </a>
+                </p>
+                <p>
+                  <span className="font-semibold text-white">Email:</span>{' '}
+                  <a href="mailto:hello@stridelab.vn" className="text-emerald-200">hello@stridelab.vn</a>
+                </p>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="tel:0900000000"
-                className="rounded-full bg-emerald-400 px-6 py-3 text-base font-semibold text-slate-950 transition hover:bg-emerald-300"
+
+            <form className="space-y-4 rounded-[1.5rem] border border-white/10 bg-white/10 p-6 backdrop-blur" onSubmit={(e) => e.preventDefault()}>
+              <div>
+                <label className="text-sm font-semibold text-white" htmlFor="name">Họ tên</label>
+                <input
+                  id="name"
+                  name="name"
+                  className="mt-2 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-slate-300"
+                  placeholder="Nguyễn Văn A"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-sm font-semibold text-white" htmlFor="phone">Số điện thoại</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  className="mt-2 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-slate-300"
+                  placeholder="0901 234 567"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-sm font-semibold text-white" htmlFor="note">Nhu cầu</label>
+                <textarea
+                  id="note"
+                  name="note"
+                  rows={3}
+                  className="mt-2 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-slate-300"
+                  placeholder="Ví dụ: đặt size 42 mẫu Nebula Runner X"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full rounded-full bg-white px-6 py-3 text-base font-semibold text-slate-900 transition hover:bg-emerald-200"
               >
-                Gọi ngay
-              </a>
-              <a
-                href="https://zalo.me"
-                className="rounded-full border border-white/15 px-6 py-3 text-base font-semibold text-white transition hover:bg-white/8"
-              >
-                Chat Zalo
-              </a>
-            </div>
+                Gửi yêu cầu
+              </button>
+              <p className="text-xs text-slate-200/70">
+                Bằng cách gửi form, bạn đồng ý để Stride Lab liên hệ lại qua điện thoại/Zalo để tư vấn.
+              </p>
+            </form>
           </div>
         </div>
       </section>
